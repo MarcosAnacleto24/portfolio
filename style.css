@@ -1,4 +1,18 @@
-/* style.css - portfolio Thiago Costa */
+/* style.css - portfolio Marcos Anacleto */
+
+/* ===============================
+   VARIÁVEIS DE CORES (VERDE)
+=============================== */
+:root {
+  --primary: #00E676;         /* Verde vibrante para destaques principais */
+  --primary-hover: #00C853;   /* Verde ligeiramente mais escuro para efeitos de passar o mouse */
+  --background: #0f0f0f;      /* Fundo escuro padrão */
+  --card-bg: #121212;         /* Fundo dos cards */
+  --border-color: #1f1f1f;    /* Cor das bordas padrão */
+  --border-hover: #00E676;    /* Cor da borda quando passa o mouse */
+  --text: #ffffff;            /* Cor do texto principal */
+  --muted: #94A3B8;           /* Cor do texto secundário */
+}
 
 /* ===============================
    RESET & BASE
@@ -7,8 +21,8 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #0f0f0f;
-  color: #fff;
+  background: var(--background);
+  color: var(--text);
   line-height: 1.6;
 }
 a { color: inherit; text-decoration: none; }
@@ -57,7 +71,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.8rem;
   letter-spacing: 1px;
 }
-.brand span { color: #4cc9f0; }
+.brand span { color: var(--primary); }
 
 .nav-list {
   display: flex;
@@ -85,6 +99,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   margin: .5rem 0;
 }
+.highlight { color: var(--primary); } /* Garante que o sobrenome fique verde */
 .hero-sub { opacity: .8; margin-bottom: 1.5rem; }
 
 .btn {
@@ -94,12 +109,12 @@ img { max-width: 100%; display: block; }
   display: inline-block;
   transition: .3s;
 }
-.btn.primary { background: #4cc9f0; color: #000; }
-.btn.primary:hover { background: #3bb6db; }
-.btn.ghost { border: 2px solid #4cc9f0; }
-.btn.ghost:hover { background: #4cc9f0; color: #000; }
-.btn.outline { border: 2px solid #fff; }
-.btn.outline:hover { background: #fff; color: #000; }
+.btn.primary { background: var(--primary); color: #000; }
+.btn.primary:hover { background: var(--primary-hover); }
+.btn.ghost { border: 2px solid var(--primary); color: var(--text); }
+.btn.ghost:hover { background: var(--primary); color: #000; }
+.btn.outline { border: 2px solid var(--text); }
+.btn.outline:hover { background: var(--text); color: #000; }
 
 .hero-stats {
   display: flex;
@@ -109,7 +124,7 @@ img { max-width: 100%; display: block; }
 .hero-stats div {
   text-align: center;
 }
-.hero-stats strong { font-size: 1.4rem; display: block; }
+.hero-stats strong { font-size: 1.4rem; display: block; color: var(--primary); }
 
 .card-glass {
   background: rgba(255,255,255,0.06);
@@ -124,6 +139,8 @@ img { max-width: 100%; display: block; }
 .profile-img {
   border-radius: 50%;
   width: 140px;
+  height: 140px;          /* Mantém proporção 1:1 */
+  object-fit: cover;      /* Evita que distorça se recortar */
   margin: auto;
   margin-bottom: 1rem;
 }
@@ -132,10 +149,10 @@ img { max-width: 100%; display: block; }
   margin: .2rem;
   transition: .3s;
 }
-.social-row a:hover { color: #4cc9f0; }
+.social-row a:hover { color: var(--primary); }
 
 /* ===============================
-   SERVICES
+   SERVICES (COMPETÊNCIAS)
 =============================== */
 .services-grid {
   display: grid;
@@ -143,16 +160,16 @@ img { max-width: 100%; display: block; }
   gap: 2rem;
 }
 .service {
-  background: #121212;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 16px;
-  border: 1px solid #222;
+  border: 1px solid var(--border-color);
   transition: .3s;
 }
-.service:hover { border-color: #4cc9f0; transform: translateY(-5px); }
-.service-icon ion-icon {
+.service:hover { border-color: var(--border-hover); transform: translateY(-5px); }
+.service .icon ion-icon {   /* Corrigido o seletor do ícone das atividades */
   font-size: 2rem;
-  color: #4cc9f0;
+  color: var(--primary);
 }
 
 /* ===============================
@@ -164,31 +181,31 @@ img { max-width: 100%; display: block; }
   gap: 2.5rem;
 }
 .project-card {
-  background: #121212;
+  background: var(--card-bg);
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid #1f1f1f;
+  border: 1px solid var(--border-color);
   transition: .3s;
 }
-.project-card:hover { border-color: #4cc9f0; transform: translateY(-6px); }
+.project-card:hover { border-color: var(--border-hover); transform: translateY(-6px); }
 .project-media img { height: 200px; width: 100%; object-fit: cover; }
 .project-body { padding: 1.5rem; }
 .project-actions {
-	margin-top: 1.5rem;
-	display: flex;
-	justify-content: center;  
-	align-items: center;
-	gap: 1rem;
-  }
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  gap: 1rem;
+}
   
-  .project-actions .btn {
-	flex: 1;                 
-	text-align: center;
-	padding: 1rem 0;          
-	min-width: 140px;         
-	border-radius: 10px;
-	font-size: 0.95rem;
-  }
+.project-actions .btn {
+  flex: 1;                 
+  text-align: center;
+  padding: 1rem 0;          
+  min-width: 140px;         
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
 
 /* ===============================
    ABOUT
@@ -206,7 +223,12 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(15px);
 }
-.about-img { border-radius: 16px; }
+.about-img { 
+  border-radius: 16px; 
+  max-height: 450px;      /* Evita que a foto cresça demais */
+  width: 100%;
+  object-fit: cover;
+}
 .about-list li { margin-bottom: .5rem; opacity: .8; }
 
 /* ===============================
@@ -218,19 +240,19 @@ img { max-width: 100%; display: block; }
   gap: 2rem;
 }
 .contact-card {
-  background: #121212;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 16px;
-  border: 1px solid #222;
+  border: 1px solid var(--border-color);
   text-align: center;
   transition: .3s;
 }
 .contact-card ion-icon {
   font-size: 2rem;
-  color: #4cc9f0;
+  color: var(--primary);
   margin-bottom: .6rem;
 }
-.contact-card:hover { border-color: #4cc9f0; }
+.contact-card:hover { border-color: var(--border-hover); }
 
 /* ===============================
    FOOTER
@@ -249,7 +271,7 @@ img { max-width: 100%; display: block; }
   opacity: .7;
   transition: .3s;
 }
-.footer-links a:hover { opacity: 1; color: #4cc9f0; }
+.footer-links a:hover { opacity: 1; color: var(--primary); }
 
 /* ===============================
    MOBILE
